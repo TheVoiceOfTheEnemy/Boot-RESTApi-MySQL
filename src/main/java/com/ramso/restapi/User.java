@@ -8,14 +8,19 @@ import static com.ramso.restapi.util.ConditionsMethods.notEmpty;
 import static com.ramso.restapi.util.ConditionsMethods.notNull;
 
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
 
-
-
+@Entity
+@Table(name = "users")
 final class User {
 	
 	static final int MAX_LENGTH_NAME = 30;
 	
 	@Id  					 //API Doc: http://docs.jboss.org/hibernate/orm/3.3/reference/en/html/mapping.html#mapping-declaration-id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String id;
 	private String name;
 	private int credits;
